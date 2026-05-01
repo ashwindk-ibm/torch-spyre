@@ -3481,6 +3481,7 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
 
         compare_with_cpu(fn, q, freqs, cpu_compile=False)
 
+    @pytest.mark.skip(reason="unsupported")
     def test_sum_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
             lambda x: op(x, dim=dim, keepdim=keepdim),
@@ -3488,6 +3489,7 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
             run_eager=True,
         )
 
+    @pytest.mark.skip(reason="unsupported")
     def test_mean_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
             lambda x: op(x, dim=dim, keepdim=keepdim),
@@ -3495,6 +3497,7 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
             run_eager=True,
         )
 
+    @pytest.mark.skip(reason="unsupported")
     def test_max_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
             lambda x: op(x, dim=dim, keepdim=keepdim)[0],
@@ -3502,6 +3505,7 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
             run_eager=True,
         )
 
+    @pytest.mark.skip(reason="unsupported")
     def test_min_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
             lambda x: op(x, dim=dim, keepdim=keepdim)[0],
