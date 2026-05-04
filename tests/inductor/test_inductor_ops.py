@@ -2105,6 +2105,32 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     cached_randn((3, 7, 9), dtype=torch.float32, scale=0.1),
                 ),
             },
+            "expect_fail": [
+                "fp16_1d_dim_0",
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_0",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp16_3d_dim_neg1",
+                "fp16_3d_dim_neg2",
+                "fp32_1d_dim_0",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_0",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+                "fp32_3d_dim_neg1",
+                "fp32_3d_dim_neg2",
+            ],
         },
         ("test_sum_keepdim0", "test_sum_eager"): {
             "ops_dict": {"sum": torch.sum},
@@ -2190,6 +2216,24 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     cached_randn((6, 7, 12, 64), dtype=torch.float32, scale=0.01),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+            ],
         },
         ("test_mean_keepdim1", "test_mean_eager"): {
             "ops_dict": {"mean": torch.mean},
@@ -2291,6 +2335,20 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     cached_randn((3, 7, 9), dtype=torch.float32),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_0",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_3d_dim_neg1",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_0",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_3d_dim_neg1",
+            ],
         },
         ("test_mean_keepdim0", "test_mean_eager"): {
             "ops_dict": {"mean": torch.mean},
@@ -2360,6 +2418,16 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     cached_randn((67, 256), dtype=torch.float32),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_0",
+                "fp16_3d_dim_1",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_0",
+                "fp32_3d_dim_1",
+            ],
         },
         ("test_max_keepdim1", "test_max_eager"): {
             "ops_dict": {"max": torch.max},
@@ -2491,6 +2559,26 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     ),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_0",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_0",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+            ],
         },
         ("test_max_keepdim0", "test_max_eager"): {
             "ops_dict": {"max": torch.max},
@@ -2608,6 +2696,24 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     ),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+            ],
         },
         ("test_min_keepdim1", "test_min_eager"): {
             "ops_dict": {"min": torch.min},
@@ -2739,6 +2845,26 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     ),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_0",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_0",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+            ],
         },
         ("test_min_keepdim0", "test_min_eager"): {
             "ops_dict": {"min": torch.min},
@@ -2856,6 +2982,24 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                     ),
                 ),
             },
+            "expect_fail": [
+                "fp16_2d_dim_0",
+                "fp16_2d_dim_1",
+                "fp16_3d_dim_1",
+                "fp16_3d_dim_2",
+                "fp16_4d_dim_0",
+                "fp16_4d_dim_1",
+                "fp16_4d_dim_2",
+                "fp16_4d_dim_3",
+                "fp32_2d_dim_0",
+                "fp32_2d_dim_1",
+                "fp32_3d_dim_1",
+                "fp32_3d_dim_2",
+                "fp32_4d_dim_0",
+                "fp32_4d_dim_1",
+                "fp32_4d_dim_2",
+                "fp32_4d_dim_3",
+            ],
         },
     }
 
@@ -3503,36 +3647,24 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
 
         compare_with_cpu(fn, q, freqs, cpu_compile=False)
 
-    @pytest.mark.xfail(reason="unsupported")
     def test_sum_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim),
-            x,
-            run_eager=True,
+            lambda x: op(x, dim=dim, keepdim=keepdim), x, run_compiled=False
         )
 
-    @pytest.mark.xfail(reason="unsupported")
     def test_mean_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim),
-            x,
-            run_eager=True,
+            lambda x: op(x, dim=dim, keepdim=keepdim), x, run_compiled=False
         )
 
-    @pytest.mark.xfail(reason="unsupported")
     def test_max_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim)[0],
-            x,
-            run_eager=True,
+            lambda x: op(x, dim=dim, keepdim=keepdim)[0], x, run_compiled=False
         )
 
-    @pytest.mark.xfail(reason="unsupported")
     def test_min_eager(self, op, dim: int, keepdim: bool, x):
         compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim)[0],
-            x,
-            run_eager=True,
+            lambda x: op(x, dim=dim, keepdim=keepdim)[0], x, run_compiled=False
         )
 
     def test_attn_qkv_paths(self, q, k, v):
