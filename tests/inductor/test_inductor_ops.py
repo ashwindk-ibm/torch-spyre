@@ -2106,18 +2106,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_1d_dim_0",
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_0",
-                "fp16_3d_dim_1",
-                "fp16_3d_dim_2",
-                "fp16_4d_dim_0",
-                "fp16_4d_dim_1",
-                "fp16_4d_dim_2",
-                "fp16_4d_dim_3",
-                "fp16_3d_dim_neg1",
-                "fp16_3d_dim_neg2",
                 "fp32_1d_dim_0",
                 "fp32_2d_dim_0",
                 "fp32_2d_dim_1",
@@ -2217,14 +2205,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_1",
-                "fp16_3d_dim_2",
-                "fp16_4d_dim_0",
-                "fp16_4d_dim_1",
-                "fp16_4d_dim_2",
-                "fp16_4d_dim_3",
                 "fp32_2d_dim_0",
                 "fp32_2d_dim_1",
                 "fp32_3d_dim_1",
@@ -2336,10 +2316,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_0",
-                "fp16_3d_dim_1",
                 "fp16_3d_dim_2",
                 "fp16_3d_dim_neg1",
                 "fp32_2d_dim_0",
@@ -2419,10 +2395,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_0",
-                "fp16_3d_dim_1",
                 "fp32_2d_dim_0",
                 "fp32_2d_dim_1",
                 "fp32_3d_dim_0",
@@ -2560,15 +2532,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_0",
-                "fp16_3d_dim_1",
-                "fp16_3d_dim_2",
-                "fp16_4d_dim_0",
-                "fp16_4d_dim_1",
-                "fp16_4d_dim_2",
-                "fp16_4d_dim_3",
                 "fp32_2d_dim_0",
                 "fp32_2d_dim_1",
                 "fp32_3d_dim_0",
@@ -2697,14 +2660,6 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
                 ),
             },
             "expect_fail": [
-                "fp16_2d_dim_0",
-                "fp16_2d_dim_1",
-                "fp16_3d_dim_1",
-                "fp16_3d_dim_2",
-                "fp16_4d_dim_0",
-                "fp16_4d_dim_1",
-                "fp16_4d_dim_2",
-                "fp16_4d_dim_3",
                 "fp32_2d_dim_0",
                 "fp32_2d_dim_1",
                 "fp32_3d_dim_1",
@@ -3648,24 +3603,16 @@ class TestOps(unittest.TestCase, metaclass=ParameterizedTestMeta):
         compare_with_cpu(fn, q, freqs, cpu_compile=False)
 
     def test_sum_eager(self, op, dim: int, keepdim: bool, x):
-        compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim), x, run_compiled=False
-        )
+        compare_with_cpu(lambda x: op(x, dim=dim, keepdim=keepdim), x)
 
     def test_mean_eager(self, op, dim: int, keepdim: bool, x):
-        compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim), x, run_compiled=False
-        )
+        compare_with_cpu(lambda x: op(x, dim=dim, keepdim=keepdim), x)
 
     def test_max_eager(self, op, dim: int, keepdim: bool, x):
-        compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim)[0], x, run_compiled=False
-        )
+        compare_with_cpu(lambda x: op(x, dim=dim, keepdim=keepdim)[0], x)
 
     def test_min_eager(self, op, dim: int, keepdim: bool, x):
-        compare_with_cpu(
-            lambda x: op(x, dim=dim, keepdim=keepdim)[0], x, run_compiled=False
-        )
+        compare_with_cpu(lambda x: op(x, dim=dim, keepdim=keepdim)[0], x)
 
     def test_attn_qkv_paths(self, q, k, v):
         # This tests the dataflows between rope/qkv projection and SDPA for q, k, and v
